@@ -22,11 +22,37 @@ class TransformerG(QtGui.QWidget):
         
              
         self.view = TransformerView()
+        self.viewGL = FunnyGL()
         brush=QtGui.QBrush(QtGui.QColor(240,240,255))
         self.view.setBackgroundBrush(brush)
         layout = QtGui.QVBoxLayout()
         layout.addWidget(self.view)
+        layout.addWidget(self.viewGL)
         self.setLayout(layout)
+        
+########################################################################
+class FunnyGL(QtOpenGL.QGLWidget):
+    """"""
+
+    #----------------------------------------------------------------------
+    def __init__(self, parent=None):
+        """Constructor"""
+        super().__init__()
+        pass
+    
+    def initializeGL(self):
+        glClearColor(0.0 ,0.0, 0.0, 0.0)
+        glEnable(GL_DEPTH_TEST)
+        
+    def resizeGL(self, w, h):
+        
+        glViewport(0,0,w,h)
+    
+    def paintGL(self):
+        pass
+    
+    
+    
         
     
     
