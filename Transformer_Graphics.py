@@ -22,6 +22,8 @@ class TransformerG(QtGui.QWidget):
         
              
         self.view = TransformerView()
+        brush=QtGui.QBrush(QtGui.QColor(240,240,255))
+        self.view.setBackgroundBrush(brush)
         layout = QtGui.QVBoxLayout()
         layout.addWidget(self.view)
         self.setLayout(layout)
@@ -67,6 +69,10 @@ class TransformerScene(QtGui.QGraphicsScene):
         first.setPos(100,100)
         self.addItem(first)
         
+        first2= TransformerItem()
+        first2.setPos(200,100)
+        self.addItem(first2)        
+        
         editbox = QtGui.QSpinBox()
         editbox.setMaximumWidth(50)
         editbox.setValue(1)
@@ -104,10 +110,22 @@ class TransformerItem(QtGui.QGraphicsItem):
         spanA= 360*16
         painter.drawArc(rectangle, startA, spanA)
         
+        brush=QtGui.QBrush(QtGui.QColor(150,150,0))
+        pen = QtGui.QPen(QtGui.QColor(120,0,200))
+        painter.setBrush(brush)
+        painter.setPen(pen)
+        painter.drawRect(rectangle)
+        
+        
         rectangle = QtCore.QRectF(10, 50.0, 80.0, 80.0)
         painter.drawArc(rectangle, startA, spanA)
         #painter.
         
+        #painter2=QtGui.QPainter()
+        
+        #painter2.setBrush(brush)
+        
+        #brush=QtGui.QBrush(QtGui.QColor(150,150,0))
     
         
         
